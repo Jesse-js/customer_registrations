@@ -2,5 +2,5 @@
 Project with basic customer registration crud
 
 ## Requirements
-PHP 7.3^
+PHP 8.0
 Laravel 8
