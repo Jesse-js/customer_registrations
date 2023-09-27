@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\SaudacaoController;
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [SiteController::class, 'home']);
+Route::get('/about', [SiteController::class, 'about']);
+Route::get('/contact', [SiteController::class, 'contact']);
+Route::get('/services', [SiteController::class, 'services']);
+Route::get('/service/{id}', [SiteController::class, 'service']);
+Route::get('/saudacao/{nome?}', SaudacaoController::class);
