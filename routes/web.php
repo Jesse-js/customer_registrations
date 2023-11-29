@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\SaudacaoController;
 use App\Http\Controllers\SiteController;
+use App\Models\Client;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,7 @@ Route::get('/contact', [SiteController::class, 'contact']);
 Route::get('/services', [SiteController::class, 'services']);
 Route::get('/service/{id}', [SiteController::class, 'services']);
 Route::get('/saudacao/{nome?}', SaudacaoController::class);
+
+Route::get('/clients', function() {
+   return Client::all();
+});
