@@ -24,4 +24,5 @@ Route::get('/services', [SiteController::class, 'services']);
 Route::get('/service/{id}', [SiteController::class, 'services']);
 Route::get('/saudacao/{nome?}', SaudacaoController::class);
 
-Route::get('/clients', [ClientController::class, 'index']);
+Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
+Route::get('/clients/{id}', [ClientController::class, 'show'])->name('clients.show');

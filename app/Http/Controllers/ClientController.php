@@ -12,4 +12,10 @@ class ClientController extends Controller
         $clients = Client::get();
         return view('clients.index', [ 'clients' => $clients]);
     }
+
+    public function show(int $id)
+    {
+        $client = Client::find($id);
+        return view('clients.show')->with('client', $client);
+    }
 }
