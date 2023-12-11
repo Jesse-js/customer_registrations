@@ -1,9 +1,10 @@
 @extends('app')
-@section('titulo', 'Novo Cliente')
+@section('titulo', 'Editar Cliente')
 @section('conteudo')
     <h1>Novo Cliente</h1>
-    <form action="{{ route('clients.store') }}" method="POST">
+    <form action="{{ route('clients.update', $client) }}" method="POST">
         @csrf
+        @method('PUT')
         <div class="mb-3">
             <label for="name" class="form-label">Nome</label>
             <input name="name" value="{{ $client->name }}" type="text" class="form-control" id="name" placeholder="Nome do Cliente">
