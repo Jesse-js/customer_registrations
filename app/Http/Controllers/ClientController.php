@@ -32,4 +32,10 @@ class ClientController extends Controller
         Client::create($dados);
         return redirect()->route('clients.index');
     }
+
+    public function edit(int $id) 
+    {
+        $client = Client::find($id);
+        return view('clients.edit', compact('client', $client));
+    }
 }
