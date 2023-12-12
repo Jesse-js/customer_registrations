@@ -3,29 +3,52 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redis;
+use Illuminate\View\View;
 
 class ClientController extends Controller
 {
-    public function index()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return View
+     */
+    public function index(): View
     {
         $clients = Client::get();
         return view('clients.index', [ 'clients' => $clients]);
     }
 
-    public function show(int $id)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @param integer $id
+     * @return View
+     */
+    public function show(int $id): View
     {
         $client = Client::find($id);
         return view('clients.show')->with('client', $client);
     }
 
-    public function create()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return View
+     */
+    public function create(): View
     {
         return view('clients.create');
     }
 
-    public function store(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function store(Request $request): RedirectResponse
     {
         $dados = $request->except('_token');
 
@@ -33,13 +56,26 @@ class ClientController extends Controller
         return redirect()->route('clients.index');
     }
 
-    public function edit(int $id) 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param integer $id
+     * @return View
+     */
+    public function edit(int $id): View
     {
         $client = Client::find($id);
         return view('clients.edit', compact('client', $client));
     }
 
-    public function update(int $id, Request $request) 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param integer $id
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function update(int $id, Request $request): RedirectResponse
     {
         $client = Client::find($id);
 
@@ -52,7 +88,13 @@ class ClientController extends Controller
         return redirect()->route('clients.index');
     }
 
-    public function destroy(int $id)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param integer $id
+     * @return RedirectResponse
+     */
+    public function destroy(int $id): RedirectResponse
     {
         $client = Client::find($id);
 
