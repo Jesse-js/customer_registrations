@@ -6,15 +6,15 @@
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">Nome</label>
-            <input name="name" type="text" class="form-control" id="name" placeholder="Nome do Cliente">
+            <input name="name" type="text" class="form-control" id="name" placeholder="Nome do Cliente" required>
         </div>
         <div class="mb-3">
             <label for="endereco" class="form-label">Endereço</label>
-            <input name="endereco" type="text" class="form-control" id="endereco" placeholder="Endereço do Cliente">
+            <input name="endereco" type="text" class="form-control" id="endereco" placeholder="Endereço do Cliente" required>
         </div>
         <div class="mb-3">
             <label for="observacao" class="form-label">Observação</label>
-            <textarea name="observacao" class="form-control" id="observacao" rows="3" placeholder="Digite a observação"></textarea>
+            <textarea name="observacao" class="form-control" id="observacao" rows="3" placeholder="Digite a observação" required></textarea>
         </div>
         <button type="submit" class="btn btn-success">Enviar</button>
     </form>
