@@ -25,4 +25,4 @@ Route::get('/service/{id}', [SiteController::class, 'services']);
 Route::get('/saudacao/{nome?}', SaudacaoController::class);
 
 Route::resource('clients', ClientController::class);
-
+Route::resource('projects', ProjectController::class);
