@@ -16,7 +16,7 @@ class ProjectController extends Controller
     {
         $projects = Project::with(['client', 'employees'])->get(); //Eager Loading
         // $projects = Project::all(); //Lazy Loading
-        dd($projects);
+        //dd($projects);
         return view('projects.index', compact('projects'));
     }
 
@@ -44,12 +44,12 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Project $project)
     {
-        //
+        return view('projects.show', compact('project'));
     }
 
     /**
