@@ -14,7 +14,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::with(['client', 'employees'])->get(); //Eager Loading
+        $projects = Project::with(['client'])->get(); //Eager Loading
         // $projects = Project::all(); //Lazy Loading
         //dd($projects);
         return view('projects.index', compact('projects'));
@@ -49,6 +49,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+        $project->load(['client', 'employees']); //Lazy Eager Loading
         return view('projects.show', compact('project'));
     }
 
